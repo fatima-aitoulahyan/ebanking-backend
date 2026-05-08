@@ -4,15 +4,17 @@ import com.example.ebankingbackend.dtos.AccountOperationDTO;
 import com.example.ebankingbackend.dtos.CurrentBankAccountDTO;
 import com.example.ebankingbackend.dtos.CustomerDTO;
 import com.example.ebankingbackend.dtos.SavingBankAccountDTO;
-import com.example.ebankingbackend.entities.AccountOperation;
-import com.example.ebankingbackend.entities.CurrentAccount;
-import com.example.ebankingbackend.entities.Customer;
-import com.example.ebankingbackend.entities.SavingAccount;
+import com.example.ebankingbackend.entities.*;
+import com.example.ebankingbackend.repositories.BankAccountRepository;
 import org.springframework.beans.BeanUtils;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 @Service
 public class BankAccountMapperImpl {
+    BankAccountRepository bankAccountRepository;
     public CustomerDTO fromCustomer(Customer customer){
         CustomerDTO customerDTO = new CustomerDTO();
         BeanUtils.copyProperties(customer,customerDTO);
@@ -57,10 +59,29 @@ public class BankAccountMapperImpl {
         return currentAccount;
     }
 
-    public AccountOperationDTO fromAccountOperation(AccountOperation accountOperation){
-        AccountOperationDTO accountOperationDTO = new AccountOperationDTO();
-        BeanUtils.copyProperties(accountOperation, accountOperationDTO);
-        return accountOperationDTO;
+    public AccountOperationDTO fromAccountOperation(AccountOperation op) {
+
+        AccountOperationDTO dto = new AccountOperationDTO();
+
+        dto.setId(op.getId());
+        dto.setAmount(op.getAmount());
+        dto.setDescription(op.getDescription());
+        dto.setType(op.getType());
+        dto.setOperationDate(op.getOperationDate());
+
+        if (op.getBankAccount() != null) {
+            dto.setAccountId(op.getBankAccount().getId());
+        }
+
+        return dto;
+    }
+
+    public AccountOperation fromDTO(AccountOperationDTO dto) {
+        AccountOperation op = new AccountOperation();
+        op.setAmount(dto.getAmount());
+        op.setDescription(dto.getDescription());
+        op.setType(dto.getType());
+        return op;
     }
 }
 
