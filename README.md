@@ -1,13 +1,13 @@
 # E-Banking Backend System
 
-## 📌 Description
+## Description
 
 E-Banking Backend System est une application backend développée avec Spring Boot pour la gestion bancaire.  
 Elle permet de gérer des clients, des comptes bancaires (courants et épargne) ainsi que des opérations financières sécurisées via une API REST.
 
 ---
 
-## 🛠️ Technologies utilisées
+## Technologies utilisées
 
 | Technologie         | Rôle                                      |
 |---------------------|------------------------------------------|
@@ -24,7 +24,7 @@ Elle permet de gérer des clients, des comptes bancaires (courants et épargne) 
 
 ---
 
-## 🚀 Fonctionnalités
+## Fonctionnalités
 
 | Module              | Description |
 |---------------------|-------------|
@@ -36,9 +36,9 @@ Elle permet de gérer des clients, des comptes bancaires (courants et épargne) 
 
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
-### 🔐 Authentification
+### Authentification
 
 | Méthode | Endpoint       | Description |
 |----------|---------------|-------------|
@@ -47,7 +47,7 @@ Elle permet de gérer des clients, des comptes bancaires (courants et épargne) 
 
 ---
 
-### 👥 Clients
+###  Clients
 
 | Méthode | Endpoint                | Description | Rôle |
 |----------|------------------------|-------------|------|
@@ -59,7 +59,7 @@ Elle permet de gérer des clients, des comptes bancaires (courants et épargne) 
 
 ---
 
-### 💳 Comptes & opérations
+###  Comptes & opérations
 
 | Méthode | Endpoint                        | Description |
 |----------|--------------------------------|-------------|
@@ -70,7 +70,7 @@ Elle permet de gérer des clients, des comptes bancaires (courants et épargne) 
 
 ---
 
-## 🔐 Sécurité
+##  Sécurité
 
 | Élément     | Description |
 |-------------|-------------|
@@ -81,7 +81,7 @@ Elle permet de gérer des clients, des comptes bancaires (courants et épargne) 
 
 ---
 
-## 👤 Comptes de test
+##  Comptes de test
 
 | Username | Password | Rôles |
 |----------|----------|-------|
@@ -90,7 +90,7 @@ Elle permet de gérer des clients, des comptes bancaires (courants et épargne) 
 
 ---
 
-## ⚙️ Installation
+##  Installation
 
 ### 1. Cloner le projet
 ```bash
