@@ -1,83 +1,97 @@
-E-Banking Backend System
+# E-Banking Backend System
 
-Description
-E-Banking Backend System est une application backend développée avec Spring Boot pour la gestion bancaire. Elle permet de gérer des clients, des comptes bancaires (courants et épargne) ainsi que des opérations financières sécurisées via une API REST.
+## 📌 Description
 
-Fonctionnalités
+E-Banking Backend System est une application backend développée avec Spring Boot pour la gestion bancaire.  
+Elle permet de gérer des clients, des comptes bancaires (courants et épargne) ainsi que des opérations financières sécurisées via une API REST.
 
-Gestion bancaire
-- Création et gestion des clients
-- Comptes courants et comptes épargne
-- Opérations : crédit, débit et virement
-- Vérification automatique du solde
-- Gestion des découverts pour les comptes courants
+---
 
-Historique
-- Historique des transactions
-- Pagination des opérations
+## 🛠️ Technologies utilisées
 
-Sécurité
-- Authentification JWT
-- Contrôle d’accès basé sur les rôles (ADMIN / USER)
-- API sécurisée (stateless)
+| Technologie         | Rôle                                      |
+|---------------------|------------------------------------------|
+| Spring Boot         | Framework principal backend               |
+| Spring MVC          | Couche Web (API REST)                    |
+| Spring Data JPA     | Accès et gestion des données             |
+| Hibernate           | ORM pour la persistance                  |
+| H2 / MySQL          | Base de données                          |
+| Spring Security     | Authentification et autorisation         |
+| JWT (nimbus-jose)   | Sécurisation des API                     |
+| Lombok              | Réduction du code boilerplate            |
+| MapStruct           | Mapping Entity ↔ DTO                     |
+| Maven               | Gestion des dépendances et build         |
 
-Stack technique
-- Spring Boot 3
-- Spring Security + JWT (nimbus-jose-jwt)
-- Spring Data JPA / Hibernate
-- Base de données H2 ou MySQL
-- DTO + MapStruct
-- Lombok
+---
 
-Architecture du projet
-- entities : modèles JPA
-- repositories : accès aux données
-- services : logique métier
-- web : contrôleurs REST
-- dtos : objets de transfert de données
-- mappers : conversion Entity / DTO
+## 🚀 Fonctionnalités
 
-API Endpoints
+| Module              | Description |
+|---------------------|-------------|
+| Gestion clients     | Création, modification, suppression, recherche |
+| Comptes bancaires   | Comptes courants et comptes épargne |
+| Opérations          | Crédit, débit, virement entre comptes |
+| Historique          | Consultation paginée des transactions |
+| Sécurité            | Authentification JWT et gestion des rôles |
 
-Authentification
-POST /auth/login : authentification et génération du token JWT
-GET /auth/profile : utilisateur connecté
+---
 
-Clients
-GET /customers : liste des clients (USER)
-GET /customers/search?keyword= : recherche client (USER)
-POST /customers : ajouter un client (ADMIN)
-PUT /customers/{id} : modifier un client (ADMIN)
-DELETE /customers/{id} : supprimer un client (ADMIN)
+## 📡 API Endpoints
 
-Comptes et opérations
-GET /accounts : liste des comptes
-GET /accounts/{id} : détails d’un compte
-GET /accounts/{id}/pageOperations : historique paginé
-POST /accounts/saveOperation : effectuer une opération (crédit, débit, transfert)
+### 🔐 Authentification
 
-Sécurité
-- Application stateless avec JWT
-- Algorithme HMAC-SHA512
-- Rôles :
-  - ADMIN : accès complet
-  - USER : accès lecture et opérations
+| Méthode | Endpoint       | Description |
+|----------|---------------|-------------|
+| POST     | /auth/login   | Authentification et génération du token JWT |
+| GET      | /auth/profile | Récupérer le profil utilisateur connecté |
 
-Comptes de test
-Admin / 1234 (ADMIN, USER)
-User1 / 1234 (USER)
+---
 
-Installation
+### 👥 Clients
 
-Cloner le projet :
-git clone https://github.com/votre-username/ebanking-backend.git
+| Méthode | Endpoint                | Description | Rôle |
+|----------|------------------------|-------------|------|
+| GET      | /customers             | Liste des clients | USER |
+| GET      | /customers/search      | Recherche client | USER |
+| POST     | /customers             | Ajouter client | ADMIN |
+| PUT      | /customers/{id}        | Modifier client | ADMIN |
+| DELETE   | /customers/{id}        | Supprimer client | ADMIN |
 
-Configurer la clé JWT :
-Dans src/main/resources/application.properties :
-jwt.secret=votre_cle_secrete_512_bits_minimum
+---
 
-Lancer le projet :
-mvn spring-boot:run
+### 💳 Comptes & opérations
 
-Auteur
-Fatima AITOULAHYAN
+| Méthode | Endpoint                        | Description |
+|----------|--------------------------------|-------------|
+| GET      | /accounts                      | Liste des comptes |
+| GET      | /accounts/{id}                 | Détails d’un compte |
+| GET      | /accounts/{id}/pageOperations  | Historique paginé |
+| POST     | /accounts/saveOperation        | Effectuer une opération |
+
+---
+
+## 🔐 Sécurité
+
+| Élément     | Description |
+|-------------|-------------|
+| Type        | Stateless API |
+| Auth        | JWT |
+| Algorithme  | HMAC-SHA512 |
+| Rôles       | ADMIN, USER |
+
+---
+
+## 👤 Comptes de test
+
+| Username | Password | Rôles |
+|----------|----------|-------|
+| Admin    | 1234     | ADMIN, USER |
+| User1    | 1234     | USER |
+
+---
+
+## ⚙️ Installation
+
+### 1. Cloner le projet
+```bash
+git clone https://github.com/fatima-aitoulahyan/ebanking-backend.git
